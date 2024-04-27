@@ -15,15 +15,15 @@ The internals of your devices process and store all of your digital data. It is 
 Some devices will have a "hardware security program", which is a collaboration between vendors on best practices and recommendations when designing hardware, for example:
 
 - [Windows Secured-core PCs](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure-11) meet a higher security criteria specified by Microsoft. These protections aren't only applicable to Windows users; Users of other operating systems can still take advantage of features like [DMA protection](https://learn.microsoft.com/en-us/windows/security/information-protection/kernel-dma-protection-for-thunderbolt) and the ability to completely distrust Microsoft certificates.
-- [Android Ready SE](https://developers.google.com/android/security/android-ready-se) which is a collaboration between vendors to ensure their devices follow [best practices](https://source.android.com/docs/security/best-practices/hardware) and include tamper resistant hardware backed storage for things like encryption keys.
-- macOS running on Apple hardware have [hardware security](../os/macos-overview.md) which may not be available with third party operating systems.
-- [ChromeOS security](https://www.chromium.org/chromium-os/developer-library/reference/security/security-whitepaper) is at it's best when running on a Chromebook as it is able to make use of hardware features available such as the [hardware root-of-trust](https://www.chromium.org/chromium-os/developer-library/reference/security/security-whitepaper/#hardware-root-of-trust-and-verified-boot).
+- [Android Ready SE](https://developers.google.com/android/security/android-ready-se) is a collaboration between vendors to ensure their devices follow [best practices](https://source.android.com/docs/security/best-practices/hardware) and include tamper resistant hardware backed storage for things like encryption keys.
+- macOS running on an Apple SoC takes advantage of [hardware security](../os/macos-overview.md#hardware-security) which may not be available with third party operating systems.
+- [ChromeOS security](https://www.chromium.org/chromium-os/developer-library/reference/security/security-whitepaper) is at its best when running on a Chromebook as it is able to make use of available hardware features such as the [hardware root-of-trust](https://www.chromium.org/chromium-os/developer-library/reference/security/security-whitepaper/#hardware-root-of-trust-and-verified-boot).
 
 ### Preinstalled OS
 
 New computers nearly always come with Windows preinstalled, unless you buy a Mac or a specialty Linux machine. It's usually a good idea to wipe the drive and install a fresh copy of your operating system of choice, even if that means just reinstalling Windows from scratch. Due to agreements between hardware vendors and shady software vendors, the default Windows install often comes preloaded with bloatware, [adware](https://www.bleepingcomputer.com/news/technology/lenovo-gets-a-slap-on-the-wrist-for-superfish-adware-scandal/), or even [malware](https://www.zdnet.com/article/dell-poweredge-motherboards-ship-with-malware/).
 
-It's not normally necessary to do this if the manufacturer of the hardware also develops the operating system, such as with Apple devices, Microsoft Surface line or Android based devices such as the Chromebooks.
+It's not normally necessary to do this if the manufacturer of the hardware also develops the operating system, such as with Apple devices, the Microsoft Surface line or Android-based devices such as Chromebooks.
 
 ### Firmware Updates
 
@@ -31,7 +31,7 @@ Hardware often has security issues that are discovered and patched through firmw
 
 Almost every component of your computer requires firmware to operate, from your motherboard to your drives. It's ideal for all the components of your device to be fully supported. Apple devices, Chromebooks, most Android phones, and Microsoft Surface devices will handle firmware updates for you as long as the device is supported.
 
-If you build your own PC, you may need to manually update your motherboard's firmware by downloading it from your OEM's website.
+If you build your own PC, you may need to manually update your motherboard's firmware by downloading it from your OEM's website. If you use Linux, consider using the built-in `[fwupd`](https://fwupd.org/) tool that will let you update any firmware updates available for your motherboard.
 
 ### TPM/Secure Cryptoprocessor
 
@@ -52,14 +52,14 @@ Biometrics can prevent someone from watching you type in your password, so if sh
 
 Most implementations of face authentication require you to be looking at your phone and also only work from a relatively close distance, so you don't need to worry too much about someone pointing your phone at your face to unlock it without your consent. You can still disable biometrics when your phone is locked if you want. On iOS, you can hold the side button and a volume button for 3 seconds to disable Face ID on models that support it. On Android, hold the power button and press Lockdown on the menu.
 
-<div class="admonition Warning" markdown>
+<div class="admonition warning" markdown>
 <p class="admonition-title">Warning</p>
 
 Some devices do not have the proper hardware for secure face authentication. There's two main types of face authentication: 2D and 3D. 3D face authentication makes use of a dot projector that lets the device create a 3D depth map of your face. Make sure that your device has this capability.
 
 </div>
 
-Android defines three [security classes](https://source.android.com/docs/security/features/biometric/measure#biometric-classes) for biometrics; you should check that your device is class 3 before enabling biometrics.
+Android defines three [security classes](https://source.android.com/docs/security/features/biometric/measure#biometric-classes) for biometrics; you should check that your device is Class 3 before enabling biometrics.
 
 ### Device Encryption
 
@@ -81,14 +81,14 @@ Hardware keys are devices that use strong cryptography to authenticate you to a 
 
 If you don't want to trust your OS's permission controls to prevent the camera from activating in the first place, you can buy camera blockers that physically prevent light from reaching the camera. You could also buy a device that doesn't have a built-in camera and use an external camera that you can unplug whenever you're done using it. Some devices come with built-in camera blockers or hardware switches that physically disconnect the camera from power.
 
-<div class="admonition Warning" markdown>
+<div class="admonition warning" markdown>
 <p class="admonition-title">Warning</p>
 
 You should only buy covers that fit your laptop and won't cause damage when you close the lid. Covering the camera will interfere with automatic brightness and face authentication features.
 
 </div>
 
-Similarly, for your microphone, you'll just need to trust your OS's built-in permission controls. Alternatively, buy a device that doesn't have a built-in microphone and use an external microphone that you can unplug when you're done using it. Some devices, like a [MacBook or iPad](https://support.apple.com/guide/security/hardware-microphone-disconnect-secbbd20b00b/web), feature a hardware disconnect for the microphone when you close the lid. Many PC BIOSes have the option to disable camera and Microphone. When disabled there, the hardware won't even appear as a device on a booted system.
+Similarly, for your microphone, you'll just need to trust your OS's built-in permission controls. Alternatively, buy a device that doesn't have a built-in microphone and use an external microphone that you can unplug when you're done using it. Some devices, like a [MacBook or an iPad](https://support.apple.com/guide/security/hardware-microphone-disconnect-secbbd20b00b/web), feature a hardware disconnect for the microphone when you close the lid. Many PC BIOSes have the option to disable camera and Microphone. When disabled there, the hardware won't even appear as a device on a booted system.
 
 ### Privacy Screens
 
@@ -116,7 +116,7 @@ Many solutions exist that allow you to separate what you're doing on a computer,
 
 For gaming, it may be useful to designate one machine as your "gaming" machine and only use it for that one task. Keep it on a separate VLAN. This may require the use of a managed switch and a router that supports segregated networks.
 
-Most consumer routers allow you to do this by enabling a separate "guest" network that can't talk to your main network. All untrusted devices can go here, including IoT devices like your smart fridge, thermostat, tv etc.
+Most consumer routers allow you to do this by enabling a separate "guest" network that can't talk to your main network. All untrusted devices can go here, including IoT devices like your smart fridge, thermostat, TV, etc.
 
 ### Minimalism
 
