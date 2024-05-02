@@ -23,7 +23,7 @@
 {% extends "main.html" %}
 {% set homepage = config.extra.privacy_guides.homepage %}
 {% block extrahead %}
-  <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css?v=3.3.0' | url }}">
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css?v=20240501' | url }}">
   {% for feed in homepage.rss %}
     <link rel="alternate" type="application/rss+xml" title="{{ feed.title }}" href="{{ feed.link }}">
   {% endfor %}
