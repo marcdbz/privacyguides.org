@@ -31,7 +31,7 @@ Hardware often has security issues that are discovered and patched through firmw
 
 Almost every component of your computer requires firmware to operate, from your motherboard to your drives. It's ideal for all the components of your device to be fully supported. Apple devices, Chromebooks, most Android phones, and Microsoft Surface devices will handle firmware updates for you as long as the device is supported.
 
-If you build your own PC, you may need to manually update your motherboard's firmware by downloading it from your OEM's website. If you use Linux, consider using the built-in [`fwupd`](https://fwupd.org) tool that will let you update any firmware updates available for your motherboard.
+If you build your own PC, you may need to manually update your motherboard's firmware by downloading it from your OEM's website. If you use Linux, consider using the built-in [`fwupd`](https://fwupd.org) tool that will let you check for and apply any firmware updates available for your motherboard.
 
 ### TPM/Secure Cryptoprocessor
 
